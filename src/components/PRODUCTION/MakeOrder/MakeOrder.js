@@ -99,7 +99,7 @@ export default function MakeOrder(props) {
    const outObj={
       product:out,
       status:0,
-      createdBy:user.id
+      createdBy:sessionStorage.getItem("id")
     }
     axios.post('http://localhost:2000/order/addorder', outObj)
     .then(response => {

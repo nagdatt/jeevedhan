@@ -149,6 +149,7 @@ const ProductionHeader = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <b style={{marginRight:"20px"}}>Production warehouse</b>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
@@ -187,7 +188,7 @@ const ProductionHeader = () => {
                 </Typography>
               </MenuItem>
               <MenuItem onClick={()=>{
-                sessionStorage.removeItem("token")
+                sessionStorage.clear()
                 window.location.reload(false);
               }}>
                 <LogoutIcon style={{ marginLeft: "5px", marginRight: "5px" }} />

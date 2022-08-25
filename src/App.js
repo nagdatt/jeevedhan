@@ -21,7 +21,8 @@ function App() {
   const [isLoggedIn,setIsLoggedIn]=React.useState([false,1]);
   React.useEffect(()=>{
     if(sessionStorage.getItem("user")){
-      setIsLoggedIn([true,sessionStorage.getItem("roleId")])
+      // sessionStorage.clear()
+     setIsLoggedIn([true,sessionStorage.getItem("roleId")])
     }
   },[])
   

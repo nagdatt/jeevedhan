@@ -47,8 +47,12 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const userName=sessionStorage.getItem("user")
   React.useEffect(()=>{
-
+    console.log(sessionStorage.getItem("user"))
+    console.log(sessionStorage.getItem("email"))
+    console.log(sessionStorage.getItem("phoneNo"))
+    console.log(sessionStorage.getItem("id"))
   },[])
 
   return (
@@ -148,6 +152,7 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <b style={{marginRight:"20px"}}>Raw Material </b>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar

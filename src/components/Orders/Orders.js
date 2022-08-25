@@ -207,10 +207,39 @@ export default function Orders() {
     createData("Cupcake", 305, 3.7, 67, 4.3),
     
   ]);
-  const selector=useSelector((state)=> state.getOrders)
+  const getOrders=async()=>{
+
+    const returnArray=[]
+    const temp=await axios
+        .get("http://localhost:2000/order/getorders")
+        temp=temp.data.orders
+          for(var i in temp){
+            console.log(temp[i])
+            var qty=0
+            var pro=temp[i].product
+            for( var j in pro){
+              qty=qty+pro[j].qty
+            }
+            returnArray.push({
+              "id":temp[i]._id,
+              "productlength":temp[i].product.length,
+              "status":temp[i].status,
+              "from":temp[i].from?.name,
+              "createdBy":temp[i].createdBy,
+              "createdDate":temp[i].createdAt,
+              "qty":qty
+  
+            })
+          
+          }
+       console.log("returnorders",returnArray)
+       
+        return returnArray;
+  }
+  
+  const selector=useSelector(state=>state.getOrders)
   const [data,setData]=React.useState(selector)
   React.useEffect(()=>{
-    console.log("data",data)
     setData(data)
     const outArr=[]
     for (var i in data){
@@ -221,6 +250,7 @@ export default function Orders() {
     setRows(outArr)
 
   },[])
+ 
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
   const [selected, setSelected] = React.useState([]);

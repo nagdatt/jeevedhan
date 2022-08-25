@@ -22,7 +22,7 @@ const getDistributionHistory=()=>{
 
           })
         }
-        console.log("regular orders",returnAray)
+    //    console.log("regular orders",returnAray)
         
            // console.log(returnAray)
 

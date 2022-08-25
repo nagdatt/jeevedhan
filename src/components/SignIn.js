@@ -75,7 +75,7 @@ export default function SignIn(props) {
       roleId=4;
       console.log(res.data.user)
        sessionStorage.setItem('user',res.data.user.name);
-        sessionStorage.setItem('email',res.data.user.emails);
+        sessionStorage.setItem('email',res.data.user.email);
         sessionStorage.setItem('phoneNo',res.data.user.phoneNo);
         sessionStorage.setItem('id',res.data.user._id);
 
