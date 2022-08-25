@@ -1,6 +1,7 @@
 import React from "react";
 import axios from 'axios'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Snackbar } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import {
   
@@ -40,7 +41,6 @@ export default function MakeOrder(props) {
   const [listOfBilling, setListOfBilling] = React.useState([]);
   const [total,setTotal]=React.useState(0);
   const [SubTypesOfValue, setSubTypesOfValue] = React.useState(props.SubTypesOf[0]);
- 
   const [InputTypeValue, setInputTypeValue] = React.useState(props.InputType[0]);
   const handleAddButton=()=>{
     const temp=listOfBilling
@@ -101,9 +101,11 @@ export default function MakeOrder(props) {
       status:0,
       createdBy:sessionStorage.getItem("id")
     }
+    console.log(outObj)
     axios.post('http://localhost:2000/order/addorder', outObj)
     .then(response => {
       console.log(response)
+
     }).catch(error => {
       console.log(error.response)
   });;

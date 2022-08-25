@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { MainMargin, MarginTop } from "./../../dimentions/Margins";
+import { MainMargin, MarginTop } from "./../../../dimentions/Margins";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Table from '@mui/material/Table';
@@ -8,7 +8,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Tracker from './../TrackAndTransport/Tracker'
+import Tracker from './../../TrackAndTransport/Tracker'
 import axios from "axios";
 
 import { useLocation } from "react-router";
@@ -17,15 +17,19 @@ function createRow(desc, qty, unit) {
   return { desc, qty, unit, price };
 }
 
-export default function Order() {
+export default function ProductionTransactionHistory() {
   const updateStatus=(orderId,Orderstaus)=>{
     console.log(Orderstaus)
  
-      const url="http://localhost:2000/order/updateStatus?id="+orderId+"&status="+(Orderstaus+1)
-      axios.get(url).then((res)=>{
-        console.log("succeded")
-      })
-      console.log(url)
+    if(Orderstaus>=2)
+    {
+        const url="http://localhost:2000/order/updateStatus?id="+orderId+"&status="+(Orderstaus+1)
+        axios.get(url).then((res)=>{
+          console.log("succeded")
+        })
+        console.log(url)
+
+    }
   
     
   }
@@ -33,7 +37,6 @@ export default function Order() {
   const [orderDetails,setOrderDetails]=React.useState([])
   const [orderId,setOrderId]=React.useState(0)
   const [status,setStatus]=React.useState(loc.state?.status)
-  console.log(loc.state?.status)
   const [rows,setRows] =React.useState( [
     createRow('Paperclips (Box)', 100, 1.15),
     createRow('Paper (Case)', 10, 45.99),

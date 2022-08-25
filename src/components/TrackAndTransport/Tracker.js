@@ -27,7 +27,7 @@ React.useEffect(()=>{
 
   const handleNext = () => {
    
-    if(activeStep<2)
+    if(activeStep<4)
 {
   setActiveStep((prevActiveStep) => prevActiveStep + 1);
   props.updateStatus(props.orderId,(activeStep+1))

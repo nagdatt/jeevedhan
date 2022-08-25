@@ -31,9 +31,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import generateRandom from './../../OTPGenerator/GetOtp'
 import { useSelector } from "react-redux";
+import { Snackbar } from "@mui/material";
 export default function MakeProduct(props) {
-  console.log(props)
   const user=(useSelector((state)=>state.getUser))
+  const [snackVisibility,setSnackVisibility]=React.useState(false)
+
   const [openConfirm, setOpenConfirm] = React.useState(false);
   const [otpForConfirm,setOtpforConfirm]=React.useState(0);
   const [Size,setSize]=React.useState(1)
@@ -65,7 +67,7 @@ export default function MakeProduct(props) {
    
   }
   React.useEffect(()=>{
-    console.log(total)
+   // console.log(total)
   },[total])
   const handleRemoveButton=(id)=>{
     
@@ -101,12 +103,15 @@ export default function MakeProduct(props) {
     qty:listOfBilling[i].resource,
       rawmaterial:out,
       status:0,
-      createdBy:user.id
+      createdBy:sessionStorage.getItem("id"),
+      price:total
     }
     console.log(outObj)
     axios.post('http://localhost:2000/production/makeproduct', outObj)
     .then(response => {
-      console.log(response)
+      console.log(response,"obj")
+      setSnackVisibility(true)
+      window.location.reload(false)
     }).catch(error => {
       console.log(error.response)
   });;
@@ -278,6 +283,14 @@ export default function MakeProduct(props) {
           </Button>
         </DialogActions>
       </Dialog>
+      <Snackbar
+  open={snackVisibility}
+  autoHideDuration={6000}
+  onClose={()=>{
+    setSnackVisibility(false)
+  }}
+  message="Product Added Successfully"
+/>
     </Paper>
   );
 }

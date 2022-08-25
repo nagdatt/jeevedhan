@@ -22,7 +22,8 @@ const pages = [
   ["Make Order", 0, "/"],
   ["Stock", 2, "/productionStock"],
   ["Make Products", 0, "/MakeProduct"],
-  ["Product_Stock", 0, "/ProductWareHouse"]
+  ["Product_Stock", 0, "/ProductWareHouse"],
+  
 
   // ["Track Transport", 0, "/TrackTransport"],
 ];
@@ -48,6 +49,7 @@ const ProductionHeader = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  console.log(sessionStorage.getItem("id"))
 
   return (
     <AppBar position="static">
@@ -184,7 +186,10 @@ const ProductionHeader = () => {
                   style={{ marginLeft: "5px", marginRight: "5px" }}
                 />
                 <Typography textAlign="center">
+                  <Link to ="/transactionhistory">
                   Transaction History
+
+                  </Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={()=>{
