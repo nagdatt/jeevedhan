@@ -47,6 +47,9 @@ const Header = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  React.useEffect(()=>{
+
+  },[])
 
   return (
     <AppBar position="static">
