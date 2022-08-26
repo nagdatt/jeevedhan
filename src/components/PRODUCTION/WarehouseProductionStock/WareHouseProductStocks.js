@@ -9,7 +9,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import Pagination from '@mui/material/Pagination';
 import {useSelector,useDispatch} from 'react-redux';
 
-export default function Stocks() {
+export default function WareHouseProductStocks() {
   const [storageObj, setStorageObj] = React.useState([]);
 const [displaystorageObj,setStorageObjTrackers]=React.useState(storageObj)
 const [pageSize,setPageSize]=React.useState(Math.round(Math.ceil(storageObj.length/5)))

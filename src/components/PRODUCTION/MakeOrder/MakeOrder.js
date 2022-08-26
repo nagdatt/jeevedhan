@@ -105,6 +105,7 @@ export default function MakeOrder(props) {
     axios.post('http://localhost:2000/order/addorder', outObj)
     .then(response => {
       console.log(response)
+      window.location.reload()
 
     }).catch(error => {
       console.log(error.response)
