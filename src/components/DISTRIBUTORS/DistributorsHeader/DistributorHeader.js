@@ -68,8 +68,7 @@ const DistributorHeader = () => {
               textDecoration: "none",
             }}
           >
-            JEE-VEN-DHAN
-          </Typography>
+JeeVendhan          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
