@@ -178,7 +178,10 @@ JeeVendhan          </Typography>
                 <Typography textAlign="center">Profile</Typography>
               </MenuItem>
              
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem onClick={  ()=>{
+                sessionStorage.clear()
+                window.location.reload(false)
+              }}>
                 <LogoutIcon style={{ marginLeft: "5px", marginRight: "5px" }} />
                 <Typography textAlign="center">Logout</Typography>
               </MenuItem>
