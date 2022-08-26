@@ -151,7 +151,7 @@ const Header = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <b style={{marginRight:"20px"}}>Raw Material </b>
+            <b style={{marginRight:"20px"}}>{sessionStorage.getItem("user")} </b>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar

@@ -60,8 +60,8 @@ export default function FarmersPosts() {
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            <TableCell>Raw material Id</TableCell>
-                            <TableCell>Quantity</TableCell>
+                            <TableCell>Product Name</TableCell>
+                            <TableCell>Quantity (kg)</TableCell>
                             <TableCell align="left">User Name</TableCell>
                             <TableCell align="left">Location</TableCell>
                             <TableCell align="left">Phone No.</TableCell>
@@ -77,7 +77,7 @@ export default function FarmersPosts() {
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.rawmaterial.name}
+                                    {row._id}
                                 </TableCell>
                                 <TableCell align="left">{row.qty}</TableCell>
 
