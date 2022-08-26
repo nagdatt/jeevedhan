@@ -35,6 +35,8 @@ export default function FarmersPosts() {
         console.log(obj, "obj")
         axios.post("http://localhost:2000/users/book", obj).then((res) => {
             console.log(res)
+            window.location.reload(false)
+
             //  window.location.reload(false)
         }).catch((err) => {
             console.log(err)
@@ -69,17 +71,17 @@ export default function FarmersPosts() {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data.map((row) => (
+                        {data.map((row) => row.status<2? (
                             <TableRow
                                 key={row.rawmaterial}
                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row._id}
+                                    {row.rawmaterial.name}
                                 </TableCell>
                                 <TableCell align="left">{row.qty}</TableCell>
 
-                                <TableCell align="left">{"My Name"}</TableCell>
+                                <TableCell align="left">{row.farmerId.name}</TableCell>
                                 <TableCell align="left">{row.location}</TableCell>
                                 <TableCell align="left">{row.phoneNo}</TableCell>
                                 <TableCell align="left">
@@ -110,7 +112,7 @@ export default function FarmersPosts() {
                                 </TableCell>
 
                             </TableRow>
-                        ))}
+                        ):"")}
                     </TableBody>
                 </Table>
             </TableContainer>

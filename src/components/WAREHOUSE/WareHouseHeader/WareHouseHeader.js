@@ -129,7 +129,7 @@ const WareHouseHeader = () => {
               textDecoration: "none",
             }}
           >
-            LOGO
+            JEE-VEN-DHAN
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(([page, notifications, path]) => (
@@ -189,7 +189,10 @@ const WareHouseHeader = () => {
                   Transaction History
                 </Typography>
               </MenuItem>
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem onClick={()=>{
+                sessionStorage.clear()
+                window.location.reload(false)
+              }}>
                 <LogoutIcon style={{ marginLeft: "5px", marginRight: "5px" }} />
                 <Typography textAlign="center">Logout</Typography>
               </MenuItem>
